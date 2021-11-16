@@ -1,0 +1,7 @@
+{
+  "name": "CrossPlatform-UAS",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
