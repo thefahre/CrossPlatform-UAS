@@ -18,7 +18,7 @@ const Home: React.FC = () => {
           <IonTitle>Home</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent fullscreen className="ion-padding-horizontal">
+      <IonContent fullscreen className="ion-padding">
         <div style={{width:"80%",marginLeft:"auto",marginRight:"auto"}}>
         <CalendarComponent/>
         </div>
