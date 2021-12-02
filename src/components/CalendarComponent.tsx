@@ -10,8 +10,8 @@ const CalendarComponent:React.FC = () =>{
         <FullCalendar
         plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
         initialView="dayGridMonth"
-        headerToolbar={{start:'',center:'dayGridMonth,dayGridWeek,dayGridDay', end:'prev,next'}}
-        footerToolbar={{start:'prevYear', center:'title', end:'nextYear'}}
+        headerToolbar={{start:'prev',center:'title', end:'next'}}
+        footerToolbar={{start:'prevYear', center:'dayGridMonth,dayGridWeek,dayGridDay', end:'nextYear'}}
         height="60vh"/>
     );
 };
