@@ -1,0 +1,9 @@
+.swiper-slide{
+    min-height: 85vh;
+}
+
+.feature-img{
+    display: block;
+    filter: drop-shadow(0px 5px 2px blue);
+    
+}
