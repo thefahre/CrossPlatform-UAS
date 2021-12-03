@@ -74,7 +74,7 @@ const EditEvent:React.FC = () =>{
                     </IonRow>
                     <IonRow>
                         <IonCol>
-                            <IonButton expand="full">Add Event</IonButton>
+                            <IonButton expand="full" routerLink="/home">Save Event</IonButton>
                         </IonCol>
                     </IonRow>
                 </IonGrid>

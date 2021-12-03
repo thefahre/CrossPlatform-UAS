@@ -74,7 +74,7 @@ const CreateEvent:React.FC = () =>{
                     </IonRow>
                     <IonRow>
                         <IonCol>
-                            <IonButton expand="full">Add Event</IonButton>
+                            <IonButton expand="full" routerLink="/home">Add Event</IonButton>
                         </IonCol>
                     </IonRow>
                 </IonGrid>

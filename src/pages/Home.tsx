@@ -1,10 +1,9 @@
-import { IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonItem, IonList, IonListHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, useIonPopover } from '@ionic/react';
+import { IonButton, IonButtons, IonCard, IonCardContent, IonCardHeader, IonCardSubtitle, IonCardTitle, IonContent, IonFooter, IonHeader, IonIcon, IonItem, IonList, IonListHeader, IonMenuButton, IonModal, IonNote, IonPage, IonText, IonTitle, IonToolbar, useIonModal, useIonPopover } from '@ionic/react';
 import { useState } from 'react';
 import AgendaComponent from '../components/AgendaComponent';
 import CalendarComponent from '../components/CalendarComponent';
 import { addSharp, chevronDown } from 'ionicons/icons';
 import './Home.css';
-import { isPlatform } from '@ionic/core';
 
 const PopoverList: React.FC<{
   onHide: () => void;
@@ -16,9 +15,26 @@ const PopoverList: React.FC<{
 );
 
 const Home: React.FC = () => {
+  const [showModal, setShowModal] = useState(false);
   const [present, dismiss] = useIonPopover(PopoverList, { onHide: () => dismiss() });
+
   return (
     <IonPage>
+      <IonModal isOpen={showModal} >
+        <IonCard>
+          <IonCardHeader>
+            <IonCardTitle>Dev Team</IonCardTitle>
+          </IonCardHeader>
+          <IonCardContent className="ion-text-center">
+            <IonCardSubtitle> Marina Princessa S - 00000031720 </IonCardSubtitle>
+            <IonCardSubtitle> Fahreza Ali S - 00000033092</IonCardSubtitle>
+            <IonCardSubtitle> Gusti Bagus Bill - 000000[lupa]</IonCardSubtitle>
+
+            <IonButton onClick={() => setShowModal(false)} expand="full">Close Modal</IonButton>
+
+          </IonCardContent>
+        </IonCard>
+      </IonModal>
       <IonHeader>
         <IonToolbar className="ion-padding-horizontal">
           <IonButtons slot="end">
@@ -43,6 +59,9 @@ const Home: React.FC = () => {
           <IonTitle className="ion-margin-vertical">Agenda</IonTitle>
           <AgendaComponent/>
         </div>
+        <IonFooter className="ion-text-center ion-padding-vertical">
+          <IonNote> <a onClick={() => setShowModal(true)}> Developer Team </a> </IonNote>
+        </IonFooter>
       </IonContent>
     </IonPage>
   );
