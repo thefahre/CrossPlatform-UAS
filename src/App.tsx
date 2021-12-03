@@ -25,6 +25,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import CreateEvent from './pages/CreateEvent';
+import EditEvent from './pages/EditEvent';
 
 const App: React.FC = () => (
   <IonApp>
@@ -35,6 +36,7 @@ const App: React.FC = () => (
         <Route exact path="/login" component={Login}/>
         <Route exact path="/register" component={Register}/>
         <Route exact path="/createEvent" component={CreateEvent}/>
+        <Route exact path="/editEvent" component={EditEvent}/>
         <Redirect exact path="/" to="/landing"/>
       </IonRouterOutlet>
     </IonReactRouter>

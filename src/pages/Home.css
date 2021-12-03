@@ -7,3 +7,20 @@
     filter: drop-shadow(0px 5px 2px blue);
     
 }
+
+.swiper-desktop{
+    height: 85vh;
+    width: 50vw;
+}
+
+.feature-img-desk{
+    filter: drop-shadow(0px 5px 2px blue);
+}
+
+.site-title{
+    font-size: 3em;
+}
+
+.site-title-mobile{
+    font-size: 1.5em;
+}

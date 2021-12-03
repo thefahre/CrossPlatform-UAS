@@ -1,4 +1,3 @@
-import { IonTitle } from "@ionic/react";
 import React from "react";
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
@@ -12,6 +11,7 @@ const CalendarComponent:React.FC = () =>{
         initialView="dayGridMonth"
         headerToolbar={{start:'prev',center:'title', end:'next'}}
         footerToolbar={{start:'prevYear', center:'dayGridMonth,dayGridWeek,dayGridDay', end:'nextYear'}}
+        eventOverlap={true}
         height="60vh"/>
     );
 };

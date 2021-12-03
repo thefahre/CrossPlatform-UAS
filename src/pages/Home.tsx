@@ -1,9 +1,10 @@
-import { IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonItem, IonList, IonListHeader, IonPage, IonTitle, IonToolbar, useIonPopover } from '@ionic/react';
+import { IonButton, IonButtons, IonContent, IonHeader, IonIcon, IonItem, IonList, IonListHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, useIonPopover } from '@ionic/react';
 import { useState } from 'react';
 import AgendaComponent from '../components/AgendaComponent';
 import CalendarComponent from '../components/CalendarComponent';
 import { addSharp, chevronDown } from 'ionicons/icons';
 import './Home.css';
+import { isPlatform } from '@ionic/core';
 
 const PopoverList: React.FC<{
   onHide: () => void;
@@ -35,11 +36,13 @@ const Home: React.FC = () => {
         </IonToolbar>
       </IonHeader>
       <IonContent fullscreen className="ion-padding">
-        <div style={{width:"80%",marginLeft:"auto",marginRight:"auto"}}>
-        <CalendarComponent/>
+        <div style={{width:"80%",marginLeft:"auto",marginRight:"auto",overflow:"hidden"}}>
+        <CalendarComponent />
         </div>
-        <hr />
-        <AgendaComponent/>
+        <div>
+          <IonTitle className="ion-margin-vertical">Agenda</IonTitle>
+          <AgendaComponent/>
+        </div>
       </IonContent>
     </IonPage>
   );

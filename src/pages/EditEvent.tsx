@@ -1,7 +1,7 @@
 import { IonBackButton, IonButton, IonButtons, IonCheckbox, IonCol, IonContent, IonDatetime, IonGrid, IonHeader, IonInput, IonItem, IonLabel, IonNote, IonPage, IonRow, IonSelect, IonSelectOption, IonSelectPopover, IonTitle, IonToolbar } from "@ionic/react";
 import React, { useState } from "react";
 
-const CreateEvent:React.FC = () =>{
+const EditEvent:React.FC = () =>{
     const [eventType, setEventType] = useState<string>();
     const [selectedStartDate, setSelectedStartDate] = useState<string>();
     const [selectedEndDate, setSelectedEndDate] = useState<string>();
@@ -14,7 +14,7 @@ const CreateEvent:React.FC = () =>{
                     <IonButtons slot="start">
                         <IonBackButton defaultHref="/home"/>
                     </IonButtons>
-                    <IonTitle>Create New Event</IonTitle>
+                    <IonTitle>Edit New Event</IonTitle>
                 </IonToolbar>
             </IonHeader>
             <IonContent className="ion-padding">
@@ -31,7 +31,7 @@ const CreateEvent:React.FC = () =>{
                         <IonCol>
                             <IonItem>
                                 <IonLabel position="floating"> Event Creator </IonLabel>
-                                <IonInput type="text"/>
+                                <IonInput type="text" disabled/>
                             </IonItem>
                         </IonCol>
                     </IonRow>
@@ -83,4 +83,4 @@ const CreateEvent:React.FC = () =>{
     );
 };
 
-export default CreateEvent;
+export default EditEvent;
