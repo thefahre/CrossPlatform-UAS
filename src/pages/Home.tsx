@@ -28,7 +28,7 @@ const Home: React.FC = () => {
           <IonCardContent className="ion-text-center">
             <IonCardSubtitle> Marina Princessa S - 00000031720 </IonCardSubtitle>
             <IonCardSubtitle> Fahreza Ali S - 00000033092</IonCardSubtitle>
-            <IonCardSubtitle> Gusti Bagus Bill - 000000[lupa]</IonCardSubtitle>
+            <IonCardSubtitle> Gusti Bagus Bill - 00000029584</IonCardSubtitle>
 
             <IonButton onClick={() => setShowModal(false)} expand="full">Close Modal</IonButton>
 

@@ -66,7 +66,7 @@ const EditEvent:React.FC = () =>{
                     </IonRow>
                     <IonRow>
                         <IonCol>
-                            <IonItem color="transparent">
+                            <IonItem color="transparent" lines="none">
                             <IonCheckbox slot="start" checked={checked}/>
                             <IonLabel >Reccuring Event</IonLabel>
                             </IonItem>
