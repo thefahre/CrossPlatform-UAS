@@ -4,13 +4,14 @@ import { getFirestore, addDoc } from 'firebase/firestore';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 import '../firebaseConfig';
-import { Redirect } from "react-router";
+import { useHistory } from "react-router";
 
 const Register:React.FC = () =>{
     const unameInput = useRef<HTMLIonInputElement>(null);
     const emailInput = useRef<HTMLIonInputElement>(null);
     const passInput = useRef<HTMLIonInputElement>(null);
     const rePassInput = useRef<HTMLIonInputElement>(null);
+    const hist = useHistory();
 
     const [alertToast1, setAlertToast1] = useState(false);
     const [alertToast3, setAlertToast3] = useState(false);
@@ -39,6 +40,7 @@ const Register:React.FC = () =>{
         createUserWithEmailAndPassword(auth, email, pass).then((userCredential)=>{
             const user = userCredential.user;
             setNotifToast1(true);
+            hist.push('/login')
         }).catch((error)=>{
             const errorCode = error.code;
             const errorMessage = error.message;

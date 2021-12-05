@@ -1,11 +1,12 @@
 import { IonButton, IonCheckbox, IonContent, IonHeader, IonInput, IonItem, IonLabel, IonNote, IonPage, IonText, IonTitle, IonToolbar } from "@ionic/react";
 import { getAuth, signInWithEmailAndPassword } from "@firebase/auth";
 import React, { useRef, useState } from "react";
-import { Redirect } from "react-router";
+import { useHistory } from "react-router";
 
 const Login:React.FC = () =>{
     const emailInput = useRef<HTMLIonInputElement>(null);
     const passInput = useRef<HTMLIonInputElement>(null);
+    const hist = useHistory();
     
 
     const auth = getAuth();
@@ -20,6 +21,7 @@ const Login:React.FC = () =>{
 
         signInWithEmailAndPassword(auth,email,password).then((userCredential)=>{
             const user = userCredential.user;
+            hist.push("/home")
         }).catch((error)=>{
             const errorCode = error.code;
             const errorMsg = error.message;
