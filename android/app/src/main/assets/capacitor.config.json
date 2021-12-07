@@ -1,0 +1,6 @@
+{
+	"appId": "com.wakuwaku.wakuplanner",
+	"appName": "WakuPlanner",
+	"webDir": "build",
+	"bundledWebRuntime": false
+}

@@ -1,8 +1,8 @@
 import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'CrossPlatform-UAS',
+  appId: 'com.wakuwaku.wakuplanner',
+  appName: 'WakuPlanner',
   webDir: 'build',
   bundledWebRuntime: false
 };

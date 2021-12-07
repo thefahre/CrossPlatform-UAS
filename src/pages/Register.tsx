@@ -1,6 +1,6 @@
 import { IonButton, IonContent, IonHeader, IonInput, IonItem, IonLabel, IonNote, IonPage, IonTitle, IonToast, IonToolbar } from "@ionic/react";
 import React, { useRef, useState } from "react";
-import { getFirestore, addDoc } from 'firebase/firestore';
+import { getFirestore, addDoc, collection, doc, setDoc } from 'firebase/firestore';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 import '../firebaseConfig';
@@ -35,11 +35,23 @@ const Register:React.FC = () =>{
             setAlertToast3(true);
         }
 
+        const userRef = collection(db,"users");
+
+        const addToDatabase = async () =>{
+            const docRef = await setDoc(doc(userRef, uname),{
+                id:Math.random(),
+                username:uname,
+                email:email,
+            });
+
+            console.log("Written with id :", docRef);            
+        }
         /*Email validation masih belum */
 
         createUserWithEmailAndPassword(auth, email, pass).then((userCredential)=>{
             const user = userCredential.user;
             setNotifToast1(true);
+            addToDatabase();
             hist.push('/login')
         }).catch((error)=>{
             const errorCode = error.code;

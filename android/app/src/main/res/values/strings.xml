@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">WakuPlanner</string>
+    <string name="title_activity_main">WakuPlanner</string>
+    <string name="package_name">com.wakuwaku.wakuplanner</string>
+    <string name="custom_url_scheme">com.wakuwaku.wakuplanner</string>
+</resources>

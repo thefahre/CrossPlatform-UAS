@@ -1,7 +1,7 @@
 import { IonBackButton, IonButton, IonButtons, IonCheckbox, IonCol, IonContent, IonDatetime, IonGrid, IonHeader, IonInput, IonItem, IonLabel, IonNote, IonPage, IonRow, IonSelect, IonSelectOption, IonSelectPopover, IonTitle, IonToolbar } from "@ionic/react";
 import React, { useRef, useState } from "react";
 import '../firebaseConfig.ts';
-import { addDoc, collection, getFirestore } from 'firebase/firestore';
+import { addDoc, collection, doc, getFirestore, setDoc } from 'firebase/firestore';
 import { useHistory } from "react-router";
 
 const CreateEvent:React.FC = () =>{
@@ -30,7 +30,9 @@ const CreateEvent:React.FC = () =>{
             console.log("Please fill the form ");
         }
 
-        const docRef = await addDoc(collection(db, "events"),{
+        const eventRef = collection(db,"events");
+
+        const docRef = await setDoc(doc(eventRef, eventName?.toString()),{
             id:Math.random(),
             title:eventName,
             creator:eventCreator,
@@ -40,7 +42,7 @@ const CreateEvent:React.FC = () =>{
             color:eventColor()
         });
         hist.push("/home");
-        console.log("Written with id :", docRef.id);
+        console.log("Written with id :", docRef);
     }
 
     const eventColor = () =>{
@@ -109,7 +111,7 @@ const CreateEvent:React.FC = () =>{
                         <IonCol>
                             <IonItem>
                                 <IonLabel position="floating"> Start Date </IonLabel>
-                            <IonDatetime min={new Date().toISOString()} value={selectedStartDate} onIonChange={e => setSelectedStartDate(e.detail.value!)} placeholder="Select Start Date" ref={eventStartDateRef} ></IonDatetime>
+                            <IonDatetime min={new Date().toISOString()} value={selectedStartDate} onIonChange={e => setSelectedStartDate(e.detail.value!)} placeholder="Select Start Date and Time" ref={eventStartDateRef} pickerFormat="DD-MMM-YYYY HH:mm" displayFormat="DD-MMMM-YYYY HH:mm"></IonDatetime>
                             </IonItem>
                         </IonCol>
                     </IonRow>
@@ -117,7 +119,7 @@ const CreateEvent:React.FC = () =>{
                         <IonCol>
                             <IonItem>
                                 <IonLabel position="floating"> End Date </IonLabel>
-                            <IonDatetime min={new Date().toISOString()} value={selectedEndDate} onIonChange={e => setSelectedEndDate(e.detail.value!)} placeholder="Select End Date" ref={eventEndDateRef}></IonDatetime>
+                            <IonDatetime min={new Date().toISOString()} value={selectedEndDate} onIonChange={e => setSelectedEndDate(e.detail.value!)} placeholder="Select End Date and Time" ref={eventEndDateRef} pickerFormat="DD-MMM-YYYY HH:mm" displayFormat="DD-MMMM-YYYY HH:mm"></IonDatetime>
                             </IonItem>
                         </IonCol>
                     </IonRow>
